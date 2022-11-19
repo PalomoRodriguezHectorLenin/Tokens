@@ -5,7 +5,7 @@ var server = require('http').createServer(app);
 
 app.get('/', (req, res) => {
     res.json({
-        text: 'api works!'
+        text: 'Api tokens xd'
     });
 });
 
