@@ -1,6 +1,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const app = express();
+var server = require('http').createServer(app);
 
 app.get('/', (req, res) => {
     res.json({
@@ -41,6 +42,8 @@ function ensureToken(req, res, next) {
     }
 }
 
-app.listen(3000, () => {
-    console.log('App on port 3000')
-})
+app.set('port', process.env.PORT || 3000);
+
+server.listen(app.get('port'), ()=>{
+    console.log('server on port', app.get('port'));
+});
